@@ -1,0 +1,34 @@
+if __name__ == "__main__":
+
+    load_existing_study = True
+    
+    study_name = "U-Net-study-bilge"  # unique identifier of the study
+    storage_name = "sqlite:///{}.db".format(study_name)  # save study with this name
+    
+    if load_existing_study:
+        # just load the finished results
+        study = optuna.load_study(study_name=study_name, storage=storage_name)
+        
+        # uncomment to resume loaded study
+        # study.optimize(objective, n_trials=5) # timeout=600
+
+    else:        
+        # delete existing study object and create new one
+        # optuna.delete_study(study_name=study_name, storage=storage_name)
+
+        # set load_if_exists=True to be able to resume later
+        study = optuna.create_study(direction="maximize", study_name=study_name, storage=storage_name, load_if_exists=True)        
+
+        # start optimization
+        study.optimize(objective, n_trials=5) # timeout=600
+
+    print("Number of finished trials: {}".format(len(study.trials)))
+
+    print("Best trial:")
+    trial = study.best_trial
+
+    print("  IoU Score: {}".format(trial.value))
+
+    print("  Parameters: ")
+    for key, value in trial.params.items():
+        print("    {}\t \t: {}".format(key, value))
