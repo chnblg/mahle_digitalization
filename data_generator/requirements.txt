@@ -1,0 +1,9 @@
+dacite==1.6.0
+Flask==1.1.2
+flask-restx==0.4.0
+python-dateutil==2.6.1
+PyYAML==3.12
+scipy==1.6.3
+typing-extensions==3.10.0.0
+Werkzeug==1.0.1
+pandas==1.2.4

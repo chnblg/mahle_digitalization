@@ -1,0 +1,38 @@
+config_name: Testkonfiguration-1
+date: 2021-05-10
+issuer: Marcel Günter
+repeat: 5 # Gesamtes Messprotokoll wird N Mal wiederholt.
+audio_channels: 4
+
+steps:
+
+  - step_name: "Schritt 1: Nur Fan 1 aktiv"
+    duration: 30 # in Seconds
+    hardware:
+      fan_1: 100.0
+      fan_2: 0.0
+      fan_3: 0.0
+      pump: 0.0
+      motor_1: 0.0
+      motor_2: 0.0
+
+  - step_name: "Schritt 2: Nur Pumpe aktiv"
+    duration: 40 # in Seconds
+    hardware:
+      fan_1: 0.0
+      fan_2: 0.0
+      fan_3: 0.0
+      pump: 100.0
+      motor_1: 0.0
+      motor_2: 0.0
+
+  - step_name: "Schritt 3: Nur E-Motoren aktiv"
+    duration: 120 # in Seconds
+    hardware:
+      fan_1: 0.0
+      fan_2: 0.0
+      fan_3: 0.0
+      pump: 0.0
+      motor_1: 70.0
+      motor_2: 20.0
+
